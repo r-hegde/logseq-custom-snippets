@@ -1,86 +1,86 @@
-// common =================================================================
 MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
-// throttle MutationObserver 
+// throttle MutationObserver
 // from https://stackoverflow.com/a/52868150
-  const throttle = (func, limit) => {
-    let inThrottle;
-    return (...args) => {
-      if (!inThrottle) {
-        func(...args);
-        inThrottle = setTimeout(() => (inThrottle = false), limit);
-      }
-    };
+const throttle = (func, limit) => {
+  let inThrottle;
+  return (...args) => {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+};
+
+// query table resizer by cannibalox
+// source : https://htmldom.dev/resize-columns-of-a-table/
+
+console.log("========= query table resizer v20220312 ============");
+
+const createResizableColumn = function (col, resizer) {
+  // Track the current position of mouse
+  let x = 0;
+  let w = 0;
+
+  const mouseDownHandler = function (e) {
+    // Get the current mouse position
+    x = e.clientX;
+
+    // Calculate the current width of column
+    const styles = window.getComputedStyle(col);
+    w = parseInt(styles.width, 10);
+
+    // Attach listeners for document's events
+    document.addEventListener("mousemove", mouseMoveHandler);
+    document.addEventListener("mouseup", mouseUpHandler);
   };
 
-// query table resizer by cannibalox ============================================== 
-// source : https://htmldom.dev/resize-columns-of-a-table/   
-    console.log("========= query table resizer v20220312 ============");
+  const mouseMoveHandler = function (e) {
+    // Determine how far the mouse has been moved
+    const dx = e.clientX - x;
+    // Update the width of column
+    col.style.width = `${w + dx}px`;
+  };
 
-    const createResizableColumn = function (col, resizer) {
-      // Track the current position of mouse
-      let x = 0;
-      let w = 0;
+  // When user releases the mouse, remove the existing event listeners
+  const mouseUpHandler = function () {
+    document.removeEventListener("mousemove", mouseMoveHandler);
+    document.removeEventListener("mouseup", mouseUpHandler);
+  };
+  resizer.addEventListener("mousedown", mouseDownHandler);
+};
 
-      const mouseDownHandler = function (e) {
-        // Get the current mouse position
-        x = e.clientX;
+const updateTables = function () {
+  // Query the table
+  const table = document.querySelectorAll(".table-auto:not(.table-resizable)");
+  for (let i = 0; i < table.length; i++) {
+    // Query all headers1
+    const cols = table[i].querySelectorAll("th.whitespace-nowrap");
+    // Loop ver them
+    Array.from(cols).forEach((col) => {
+      // Create a resizer element
+      const resizer = document.createElement("div");
+      resizer.classList.add("query-table-resizer");
+      table[i].classList.add("table-resizable");
+      console.info("-- injected div.query-table-resizer --");
+      // Set the height
+      resizer.style.height = "20px";
+      // Add a resizer element to the column
+      col.appendChild(resizer);
+      createResizableColumn(col, resizer);
+    });
+  }
+};
 
-        // Calculate the current width of column
-        const styles = window.getComputedStyle(col);
-        w = parseInt(styles.width, 10);
+const updateTablesThrottled = throttle(updateTables, 1000);
+const obsTable = new MutationObserver(updateTablesThrottled);
+const watchTarget = document.getElementById("app-container");
+obsTable.observe(watchTarget, {
+  subtree: true,
+  childList: true,
+});
 
-        // Attach listeners for document's events
-        document.addEventListener("mousemove", mouseMoveHandler);
-        document.addEventListener("mouseup", mouseUpHandler);
-      };
-
-      const mouseMoveHandler = function (e) {
-        // Determine how far the mouse has been moved
-        const dx = e.clientX - x;
-        // Update the width of column
-        col.style.width = `${w + dx}px`;
-      };
-
-      // When user releases the mouse, remove the existing event listeners
-      const mouseUpHandler = function () {
-        document.removeEventListener("mousemove", mouseMoveHandler);
-        document.removeEventListener("mouseup", mouseUpHandler);
-      };
-      resizer.addEventListener("mousedown", mouseDownHandler);
-    };
-
-    const updateTables = function () {
-      // Query the table
-      const table = document.querySelectorAll(".table-auto:not(.table-resizable)");
-      for (let i = 0; i < table.length; i++) {
-        // Query all headers1
-        const cols = table[i].querySelectorAll("th.whitespace-nowrap");
-        // Loop ver them
-        Array.from(cols).forEach((col) => {
-          // Create a resizer element
-          const resizer = document.createElement("div");
-          resizer.classList.add("query-table-resizer");
-          table[i].classList.add("table-resizable");
-          console.info("-- injected div.query-table-resizer --");
-          // Set the height
-          resizer.style.height = "20px";
-          // Add a resizer element to the column
-          col.appendChild(resizer);
-          createResizableColumn(col, resizer);
-        });
-      }
-    };
-
-    const updateTablesThrottled = throttle(updateTables, 1000);
-    const obsTable = new MutationObserver(updateTablesThrottled);
-    const watchTarget = document.getElementById("app-container");
-    obsTable.observe(watchTarget, {
-      subtree: true,
-      childList: true,
-    }); 
-// ====================================================== query table resizer
-
+// Logseq hints by prurph
 
 const shouldTrigger = (e) => {
   return e.key === "g" && e.ctrlKey;
