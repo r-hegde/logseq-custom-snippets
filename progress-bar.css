@@ -1,0 +1,37 @@
+/* Progress bar from Dev-theme*/
+progress {
+  vertical-align: middle;
+  border-radius: 8px;
+  height: 0.6em;
+  width: 100px;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--ls-tertiary-background-color);
+}
+
+progress::-webkit-progress-value {
+  background: var(--ct-success-color);
+}
+
+/* Change the color of external links*/
+.external-link {
+  color: #a3e6bd; /* #ff9538;*/
+}
+
+/* Remove/reduce empty line gap for in-line code block */
+.extensions__code > div.flex {
+  margin-top: 2px !important;
+}
+
+.extensions__code {
+  display: flex;
+}
+
+/* Adjust youtube embed height */
+iframe[id^="youtube-player"] {
+  height: 600px !important;
+  width: var(--ls-main-content-max-width-wide) !important;
+}
