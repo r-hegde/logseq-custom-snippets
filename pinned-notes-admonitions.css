@@ -91,17 +91,36 @@
   --example-dark: 215, 34%;
 }
 
+/*This aligns the admonition block with the bullet point*/
+div.flex.flex-row.admonitionblock.align-items {
+  margin-top: 8px !important;
+}
+
+.admonitionblock,
 .verse,
 blockquote,
 pre.pre-wrap-white-space {
   border: 1px solid var(--transparent);
-  border-radius: var(--radius-md);
-  padding: 2em 2em;
+  border-radius: 8px;
+  padding: 1em 1em;
   margin: 1em 0;
 }
 
 .admonitionblock .is-paragraph {
-  font-size: 0.9em;
+  font-size: 0.885em;
+}
+
+blockquote .is-paragraph:first-child {
+  display: inline;
+}
+
+blockquote::before {
+  font-size: 3.5em;
+  font-weight: normal;
+  line-height: 0.1em;
+  margin-right: 1px;
+  vertical-align: -0.3em;
+  content: "❝";
 }
 
 html[data-theme="light"] blockquote {
@@ -133,7 +152,7 @@ html[data-theme="light"] .admonitionblock.important {
   border-color: hsl(var(--important), 80%, 0.1);
 }
 html[data-theme="dark"] .verse {
-  background-color: hsl(var(--verse-dark), 36%, 0.8);
+  background-color: hsl(var(--verse-dark), 36%, .8);
   border-color: hsl(var(--verse-dark), 36%, 1);
   font-style: italic;
 }
@@ -147,7 +166,7 @@ html[data-theme="light"] .verse {
 html[data-theme="dark"] .warning,
 html[data-theme="dark"] .admonitionblock.warning {
   background-color: hsl(var(--warn-dark), 39%, 1);
-  border-color: hsl(var(--warn-dark), 39%, 1);
+  border-color: hsl(var(--warn-dark), 39%, 1);;
 }
 html[data-theme="light"] .warning,
 html[data-theme="light"] .admonitionblock.warning {
@@ -240,6 +259,7 @@ html[data-theme="light"] .note svg {
 html[data-theme="light"] .caution svg {
   color: hsl(var(--caution), 84%);
 }
+
 
 html[data-theme="dark"] .warning svg {
   color: hsl(var(--warn), 82%, 0.6);
