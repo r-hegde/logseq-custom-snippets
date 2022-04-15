@@ -19,9 +19,8 @@
   order: 1;
 }
 
-
 /*-------------------------------------------------------*/
-/* Hide unnecessary navigation items */
+/* Hide unused navigation items */
 
 .cp__right-sidebar-settings .ml-4.text-sm:last-child {
     display: none;
@@ -35,18 +34,19 @@
     display: none;
 }
 
+/*This removes flashcards from left sidebar*/
 .flashcards-nav {
     display: none;
 }
 
+/*This removes "recent" from left sidebar*/
 .nav-content-item.recent.is-expand {
 	display: none;
 }
 
-/*------------------Move toolbar icons-------------------*/
+/*------------------Move previous/next arrows to left side of toolbar-------------------*/
 
 /* shrink left toolbar */
-/* note that underscore after cp should be typed twice __ and not just _ */
 .cp__header > .l {
   width: auto;
 }
@@ -61,6 +61,7 @@
   margin-left: auto;
   order: 1;
 }
+
 body:not([data-page="home"]) .r > div:nth-child(2) {
   order: 2;
 }
@@ -88,19 +89,6 @@ div[data-refs-self*="kanban"] .initial > div > .flex{
   display: none;
 }
 
-/*---------------------------Edits to Dev-theme--------------------------------------*/
-
-/* Increase the font and width of the main content page*/
-:root {
-  --ct-text-size: 16.5px !important;
-  --ls-main-content-max-width: 98% !important;
-  --ls-main-content-max-width-wide: 99% !important;
-}
-
-.ls-block :is(h1, h2, h3, h4, h5)::after {
-  display: none;
-}
-
 /*------------------------Tags----------------------------*/
 
 /* Changes to appearance of tags */
@@ -108,6 +96,10 @@ a.tag{
  /* color: rgb(181, 255, 210);*/
   font-weight: 500 !important;
   border: 1px solid currentColor !important;
+  padding: 0 4px;
+  border-radius: 4px;
+  line-height: 1.4;
+  font-size: 0.8em;
 }
 
 /* Custom appearance for project tags*/
@@ -378,6 +370,13 @@ iframe[id^='youtube-player'] {
 
 /*---------------------Margins-----------------------*/
 
+/* Increase the font and width of the main content page*/
+:root {
+  --ct-text-size: 16.5px !important;
+  --ls-main-content-max-width: 98% !important;
+  --ls-main-content-max-width-wide: 99% !important;
+}
+
 /* This reduces the margin space of the main content page */
 .cp__sidebar-main-content {
   width: 100% !important;
@@ -470,7 +469,7 @@ span[data-ref="$green"] + mark {
   color: #7CFC00 !important;
 }
 
-/*-----------------------------------------------------*/
+/*-----------------------embeds-----------------------------*/
 
 /* Change the look of embeds*/
 .embed,
@@ -890,7 +889,8 @@ html[data-theme="dark"] {
   --cl-gray: #808080;
 }
 
-/* -----------------logseq query table resizer v20220314b ----------------- */
+/* -----------------logseq query table resizer v20220314b ----------------- 
+by cannibalox-----------------*/
 
 .table th {           
   position: relative;
@@ -1024,6 +1024,10 @@ a.title h1.title {
 
 .ls-block :is(h1, h2, h3, h4, h5):hover::after {
   opacity: 1;
+}
+
+.ls-block :is(h1, h2, h3, h4, h5)::after {
+  display: none;
 }
 
 .cp__header,
