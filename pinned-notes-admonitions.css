@@ -91,9 +91,11 @@
   --example-dark: 215, 34%;
 }
 
-/*This aligns the admonition block with the bullet point*/
+/*This aligns the admonition block with the bullet point
+and reduces the bottom margin */
 div.flex.flex-row.admonitionblock.align-items {
   margin-top: 8px !important;
+  margin-bottom: 2px !important;
 }
 
 .admonitionblock,
