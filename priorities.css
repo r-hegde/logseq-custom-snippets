@@ -1,0 +1,51 @@
+/*----------------------Priorities------------------------*/
+
+a[priority],
+a.priority {
+  font-size: 0px;
+  /* Hide text */
+}
+
+
+/* Remove the display of A, B, C priorities */
+a[priority=A]::before,
+a.priority[href="#/page/A" i]:before {
+  content: " 🔺ASAP " !important;
+  background: #ffc7c7;
+  color: #000;
+  border-radius: 18px;
+  padding-right: 2px;
+}
+
+a.priority[href="#/page/A" i],
+[href="#/page/B" i],
+[href="#/page/C" i] {
+  display: inline-flex;
+  opacity: 1 !important;
+}
+
+a[priority]::before,
+a.priority::before {
+  transform: none !important;
+  border: none !important;
+  font-size: 14px;
+  font-weight: 400 !important;
+}
+
+a[priority=B]::before,
+a.priority[href="#/page/B" i]:before {
+  content: " 🟠 Medium " !important;
+  background: #ffe485;
+  color: #000;
+  border-radius: 18px;
+  padding-right: 2px;
+}
+
+a[priority=C]::before,
+a.priority[href="#/page/C" i]:before {
+  content: " 🐢 Low " !important;
+  background: #ccffc1;
+  color: #000;
+  border-radius: 18px;
+  padding-right: 2px;
+}
