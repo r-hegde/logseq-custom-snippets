@@ -1,0 +1,36 @@
+/*------------------------Tags----------------------------*/
+
+/* Changes to appearance of tags */
+a.tag{
+ /* color: rgb(181, 255, 210);*/
+  font-weight: 500 !important;
+  border: 1px solid currentColor !important;
+}
+
+/* Custom appearance for project tags*/
+a.tag[data-ref*="p_"] {
+  color: rgb(40,40,40);
+  background-color: rgb(181, 255, 210); /*#b9faf4;*/
+  border-radius: 0.5rem 0rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 0.75rem;
+  padding: 0.2rem 0.3rem;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+/*Change appearance of any tags starting with "to-" 
+(e.g. to-document)*/
+a.tag[data-ref*="to-"] {
+  font-size: 0;
+  border: 0px !important;
+  padding: 0;
+}
+
+a.tag[data-ref*="to-"]:before {
+  content: "📓";
+  font-size: 0.5rem;
+  line-height: 0.5rem; 
+}
