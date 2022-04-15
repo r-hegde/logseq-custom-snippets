@@ -1,0 +1,61 @@
+:root {
+  --ct-marker-border-radius: 4px;
+  --ct-task-done-text-decoration: none;
+  --ct-marker-size: 16px;
+  --ct-checkbox-color: var(--ls-active-primary-color);
+}
+
+/* Markers */
+.form-checkbox,
+.form-checkbox:focus {
+  border-radius: var(--ct-marker-border-radius);
+  border: 2px solid var(--ct-checkbox-color) !important;
+  background-color: transparent !important;
+  height: var(--ct-marker-size);
+  width: var(--ct-marker-size);
+}
+
+:is(.doing, .now) .form-checkbox,
+:is(.doing, .now) .form-checkbox:focus {
+  background-color: var(--ct-block-reference-background-hover) !important;
+}
+
+.waiting .form-checkbox,
+.waiting .form-checkbox:focus {
+  background-color: var(--ct-highlight-color) !important;
+}
+
+.form-checkbox:checked,
+.form-checkbox:checked:focus {
+  background-color: var(--ct-success-color) !important;
+  margin-right: 5px !important;
+}
+
+.done {
+  color: var(--ct-task-done-text-color);
+  text-decoration: var(--ct-task-done-text-decoration);
+}
+
+.timestamp-label {
+  font-size: 0.75rem;
+}
+
+.block-marker.TODO {
+  font-weight: 400;
+}
+
+/*
+.block-marker.NOW, .block-marker.DOING {
+  color: #27ae9e;
+  font-weight: 400;
+}
+
+.block-marker.LATER {
+  color: #e88438;
+  font-weight: 400;
+}
+
+.block-marker.waiting {
+  color: #f6c423;
+  font-weight: 400;
+}
