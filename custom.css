@@ -1327,6 +1327,41 @@ iframe[id^="youtube-player"] {
   padding: 0.15em 0em !important;
 }
 
+/*------------------------CodeMirror------------------------------*/
+
+.white-theme .CodeMirror,
+html[data-theme=light] .CodeMirror {
+  background: var(--neutral-muted);
+}
+
+.white-theme .CodeMirror .CodeMirror-gutters,
+html[data-theme=light] .CodeMirror .CodeMirror-gutters {
+  background-color: transparent;
+}
+
+.white-theme .extensions__code-lang,
+html[data-theme=light] .extensions__code-lang {
+  top: -1em;
+  padding: 0 0.25em 0 0.25em;
+  background: var(--neutral-muted);
+}
+
+.dark-theme .CodeMirror,
+html[data-theme=dark] .CodeMirror {
+  background: var(--canvas-overlay);
+}
+
+.dark-theme .CodeMirror .CodeMirror-gutters,
+html[data-theme=dark] .CodeMirror .CodeMirror-gutters {
+  background-color: transparent;
+}
+
+.dark-theme .extensions__code-lang,
+html[data-theme=dark] .extensions__code-lang {
+  top: -1em;
+  padding: 0 0.25em 0 0.25em;
+}
+
 /*---------------------Dark Theme Colors--------------------------*/
 
 .dark-theme,
@@ -1372,10 +1407,17 @@ html[data-theme="dark"] {
   --ct-header-bg-color: #272c35ee;
   --ls-selection-color: #000;
   --ls-block-highlight-color: #32445a;
+  --canvas-overlay: #161b22;
 }
 
 .dark-theme .image-resize {
   filter: brightness(0.8) saturate(85%);
+}
+
+
+.white-theme,
+html[data-theme=light] {
+  --neutral-muted: rgba(175, 184, 193, 0.2);
 }
 
 /* --------------------Adjustments for Mobile----------------------*/
