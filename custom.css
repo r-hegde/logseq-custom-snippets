@@ -371,7 +371,7 @@ iframe[id^='youtube-player'] {
 /* Increase the font and width of the main content page*/
 :root {
   --ct-text-size: 16.5px !important;
-  --ls-main-content-max-width: 98% !important;
+  --ls-main-content-max-width: 96% !important;
   --ls-main-content-max-width-wide: 99% !important;
 }
 
