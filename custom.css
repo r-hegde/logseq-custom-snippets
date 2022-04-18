@@ -412,6 +412,13 @@ iframe[id^='youtube-player'] {
 
 .sidebar-item.content.color-level.px-4.shadow-lg {
   margin-bottom: 8px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+/* Right sidebar background color */
+html[data-theme="dark"] div.sidebar-item.content.color-level.px-4.shadow-lg {
+  background-color: #24292e;
 }
 
 /*-------------------------------------------------------*/
@@ -446,6 +453,49 @@ mark {
   text-decoration: none !important;
 }
 
+/* Make Text Wrap plugin work on mobile */
+span[data-ref="#red"],
+span[data-ref="#green"],
+span[data-ref="#blue"],
+span[data-ref="$red"],
+span[data-ref="$green"],
+span[data-ref="$blue"] {
+  display: none;
+}
+
+span[data-ref="#red"] + mark {
+  background: #ffc7c7;
+}
+
+span[data-ref="#green"] + mark {
+  background: #ccffc1;
+}
+
+span[data-ref="#blue"] + mark {
+  background: #abdfff;
+}
+
+span[data-ref="$red"] + mark {
+  color: #f00;
+  background: unset;
+  padding: 0;
+  border-radius: 0;
+}
+
+span[data-ref="$green"] + mark {
+  color: #7CFC00 !important; /*#0f0;*/
+  background: unset;
+  padding: 0;
+  border-radius: 0;
+}
+
+span[data-ref="$blue"] + mark {
+  color: #3da5ff !important; /*#00f;*/
+  background: unset;
+  padding: 0;
+  border-radius: 0;
+}
+
 /* adding purple highlight */
 span[data-ref="#purple"]{
   display: none;
@@ -455,14 +505,6 @@ span[data-ref="#purple"] + mark {
   background: #bea8ff;
 }
 
-/* changing default the blue font color */
-span[data-ref="$blue"] + mark {
-  color: #3da5ff !important;
-}
-
-span[data-ref="$green"] + mark {
-  color: #7CFC00 !important;
-}
 
 /*-----------------------embeds-----------------------------*/
 
@@ -1244,6 +1286,10 @@ div[data-refs-self*="kanban-fit"]
   width: fit-content;
   padding-right: 2rem;
   max-width: var(--ct-block-max-width);
+}
+
+.page-properties {
+  border-radius: 5px;
 }
 
 .sidebar-item-list .page-properties,
