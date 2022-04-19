@@ -311,20 +311,19 @@ span.opacity-60.text-sm.ml-2.results-count {
   font-weight: 400;
 }
 
-/*
 .block-marker.NOW, .block-marker.DOING {
   color: #27ae9e;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .block-marker.LATER {
   color: #e88438;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .block-marker.waiting {
   color: #f6c423;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /*-----------------------------------------------------*/
@@ -372,7 +371,7 @@ iframe[id^='youtube-player'] {
 /* Increase the font and width of the main content page*/
 :root {
   --ct-text-size: 16.5px !important;
-  --ls-main-content-max-width: 98% !important;
+  --ls-main-content-max-width: 96% !important;
   --ls-main-content-max-width-wide: 99% !important;
 }
 
@@ -413,12 +412,16 @@ iframe[id^='youtube-player'] {
 
 .sidebar-item.content.color-level.px-4.shadow-lg {
   margin-bottom: 8px;
+  padding-bottom: 8px;
+  padding-top: 8px;
 }
 
-
+/* Right sidebar background color */
+html[data-theme="dark"] div.sidebar-item.content.color-level.px-4.shadow-lg {
+  background-color: #24292e;
+}
 
 /*-------------------------------------------------------*/
-
 /* vertical style of sidebar 
 
 .sidebar-item.content.color-level.px-4.shadow-lg {
@@ -450,6 +453,49 @@ mark {
   text-decoration: none !important;
 }
 
+/* Make Text Wrap plugin work on mobile */
+span[data-ref="#red"],
+span[data-ref="#green"],
+span[data-ref="#blue"],
+span[data-ref="$red"],
+span[data-ref="$green"],
+span[data-ref="$blue"] {
+  display: none;
+}
+
+span[data-ref="#red"] + mark {
+  background: #ffc7c7;
+}
+
+span[data-ref="#green"] + mark {
+  background: #ccffc1;
+}
+
+span[data-ref="#blue"] + mark {
+  background: #abdfff;
+}
+
+span[data-ref="$red"] + mark {
+  color: #f00;
+  background: unset;
+  padding: 0;
+  border-radius: 0;
+}
+
+span[data-ref="$green"] + mark {
+  color: #7CFC00 !important; /*#0f0;*/
+  background: unset;
+  padding: 0;
+  border-radius: 0;
+}
+
+span[data-ref="$blue"] + mark {
+  color: #3da5ff !important; /*#00f;*/
+  background: unset;
+  padding: 0;
+  border-radius: 0;
+}
+
 /* adding purple highlight */
 span[data-ref="#purple"]{
   display: none;
@@ -459,14 +505,6 @@ span[data-ref="#purple"] + mark {
   background: #bea8ff;
 }
 
-/* changing default the blue font color */
-span[data-ref="$blue"] + mark {
-  color: #3da5ff !important;
-}
-
-span[data-ref="$green"] + mark {
-  color: #7CFC00 !important;
-}
 
 /*-----------------------embeds-----------------------------*/
 
@@ -1250,6 +1288,10 @@ div[data-refs-self*="kanban-fit"]
   max-width: var(--ct-block-max-width);
 }
 
+.page-properties {
+  border-radius: 5px;
+}
+
 .sidebar-item-list .page-properties,
 .sidebar-item-list .block-properties {
   background: var(--ls-tertiary-background-color);
@@ -1326,7 +1368,7 @@ iframe[id^="youtube-player"] {
   padding: 0.15em 0em !important;
 }
 
-/*------------------------CodeMirror------------------------------*/
+/*--------------------------Codemirror----------------------------*/
 
 .white-theme .CodeMirror,
 html[data-theme=light] .CodeMirror {
@@ -1361,7 +1403,7 @@ html[data-theme=dark] .extensions__code-lang {
   padding: 0 0.25em 0 0.25em;
 }
 
-/*---------------------Dark Theme Colors--------------------------*/
+/*------------------------Theme Colors------------------------------*/
 
 .dark-theme,
 html[data-theme="dark"] {
@@ -1376,7 +1418,7 @@ html[data-theme="dark"] {
   --color-level-4: #525f6b;
   --color-level-5: #606e7a;
   --color-level-6: #697885;
-  --ls-primary-background-color: #272c35;
+  --ls-primary-background-color: #21232b;
   --ls-secondary-background-color: var(--color-level-1);
   --ls-tertiary-background-color: var(--color-level-2);
   --ls-quaternary-background-color: var(--color-level-3);
@@ -1412,7 +1454,6 @@ html[data-theme="dark"] {
 .dark-theme .image-resize {
   filter: brightness(0.8) saturate(85%);
 }
-
 
 .white-theme,
 html[data-theme=light] {
