@@ -220,7 +220,7 @@ span.wrapper.transition-colors.ease-in-out {
 }
 
 /* Remove the actual query displayed in simple query tables */
-div.dsl-query > div.custom-query > div.flex > div.content {
+div.dsl-query > div.custom-query  > div.flex > div.content > div.flex-1 > div.flex.flex-row > div.custom-query-title > span.title-text {
   display: none;
 }
 
