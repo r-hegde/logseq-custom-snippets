@@ -152,6 +152,21 @@ a.tag[data-ref*="p_"] {
   white-space: nowrap;
 }
 
+/* Custom appearance for area tags*/
+a.tag[data-ref*="a_"] {
+  color: rgb(40,40,40);
+  background-color: #abf8ff; /*#b9faf4;*/
+  border-radius: 0.5rem 0rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 0.75rem;
+  padding: 0.2rem 0.3rem;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+
 a.tag[data-ref*="to-"] {
   font-size: 0;
   border: 0px !important;
@@ -257,7 +272,7 @@ span.wrapper.transition-colors.ease-in-out {
 }
 
 /* Remove the actual query displayed in simple query tables */
-div.dsl-query > div.custom-query > div.flex > div.content {
+div.dsl-query > div.custom-query  > div.flex > div.content > div.flex-1 > div.flex.flex-row > div.custom-query-title > span.title-text {
   display: none;
 }
 
