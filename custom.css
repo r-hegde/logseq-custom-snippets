@@ -15,7 +15,7 @@
 }
 
 :root {
-  --ls-block-bullet-threading-width: 1.75px;
+  --ls-block-bullet-threading-width: 1.5px;
   --ls-block-bullet-active-color: #a3cef1;
   --ct-text-size: 16px;
   --ct-line-height: 1.6;
@@ -328,7 +328,7 @@ span.opacity-60.text-sm.ml-2.results-count {
 .form-checkbox,
 .form-checkbox:focus {
   border-radius: var(--ct-marker-border-radius);
-  border: 2px solid var(--ct-checkbox-color) !important;
+  border: 1px solid var(--ct-checkbox-color) !important;
   background-color: transparent !important;
   height: var(--ct-marker-size);
   width: var(--ct-marker-size);
