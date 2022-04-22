@@ -17,8 +17,7 @@
 :root {
   --ls-block-bullet-threading-width: 1.5px;
   --ls-block-bullet-active-color: #a3cef1;
-  --ct-text-size: 16px;
-  --ct-line-height: 1.6;
+ 
   --ls-font-family: "Only Emoji", "Source Sans 3 VF", "Source Han Sans VF",
     sans-serif;
   --ct-page-title-font-family: var(--ls-font-family);
@@ -252,6 +251,10 @@ div.custom-query {
   margin-top: 8px;
 }
 
+div.custom-query-title {
+  font-size: 0.875rem !important;
+}
+
 .embed .custom-query > div:first-child {
   background: var(--ls-tertiary-background-color);
 }
@@ -281,7 +284,6 @@ span.opacity-60.text-sm.ml-2.results-count {
   font-size: 0.7rem;
   font-weight: 400;
 }
-
 
 .dsl-query .custom-query-title > .font-medium,
 :not(.dsl-query) > .custom-query .custom-query-title {
@@ -328,7 +330,7 @@ span.opacity-60.text-sm.ml-2.results-count {
 .form-checkbox,
 .form-checkbox:focus {
   border-radius: var(--ct-marker-border-radius);
-  border: 1px solid var(--ct-checkbox-color) !important;
+  border: 1.5px solid var(--ct-checkbox-color) !important;
   background-color: transparent !important;
   height: var(--ct-marker-size);
   width: var(--ct-marker-size);
@@ -360,22 +362,22 @@ span.opacity-60.text-sm.ml-2.results-count {
 }
 
 .block-marker.TODO {
-  font-weight: 400;
+  font-weight: 450;
 }
 
 .block-marker.NOW, .block-marker.DOING {
   color: #27ae9e;
-  font-weight: 500;
+  font-weight: 450;
 }
 
 .block-marker.LATER {
   color: #e88438;
-  font-weight: 500;
+  font-weight: 450;
 }
 
 .block-marker.waiting {
   color: #f6c423;
-  font-weight: 500;
+  font-weight: 450;
 }
 
 /*-----------------------------------------------------*/
