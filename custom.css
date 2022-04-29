@@ -5,6 +5,19 @@
   --ls-block-bullet-threading-width: 1.5px;
 }
 
+html,
+body {
+  font-size: var(--ct-text-size);
+  font-family: var(--ls-font-family);
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: auto;
+  line-height: var(--ct-line-height);
+}
+
+textarea {
+  line-height: var(--ct-line-height);
+}
+
 .journal.page {
   display: flex;
   flex-direction: column;
@@ -115,6 +128,20 @@ a.tag[data-ref*="p_"] {
   white-space: nowrap;
 }
 
+/* Custom appearance for area tags*/
+a.tag[data-ref*="a_"] {
+  color: rgb(40,40,40);
+  background-color: #abf8ff; /*#b9faf4;*/
+  border-radius: 0.5rem 0rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 0.75rem;
+  padding: 0.2rem 0.3rem;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
 a.tag[data-ref*="to-"] {
   font-size: 0;
   border: 0px !important;
@@ -200,6 +227,10 @@ div.custom-query {
   margin-top: 8px;
 }
 
+div.custom-query-title {
+  font-size: 0.875rem !important;
+}
+
 .embed .custom-query > div:first-child {
   background: var(--ls-tertiary-background-color);
 }
@@ -229,7 +260,6 @@ span.opacity-60.text-sm.ml-2.results-count {
   font-size: 0.7rem;
   font-weight: 400;
 }
-
 
 .dsl-query .custom-query-title > .font-medium,
 :not(.dsl-query) > .custom-query .custom-query-title {
@@ -276,7 +306,7 @@ span.opacity-60.text-sm.ml-2.results-count {
 .form-checkbox,
 .form-checkbox:focus {
   border-radius: var(--ct-marker-border-radius);
-  border: 2px solid var(--ct-checkbox-color) !important;
+  border: 1.5px solid var(--ct-checkbox-color) !important;
   background-color: transparent !important;
   height: var(--ct-marker-size);
   width: var(--ct-marker-size);
@@ -308,22 +338,22 @@ span.opacity-60.text-sm.ml-2.results-count {
 }
 
 .block-marker.TODO {
-  font-weight: 400;
+  font-weight: 450;
 }
 
 .block-marker.NOW, .block-marker.DOING {
   color: #27ae9e;
-  font-weight: 500;
+  font-weight: 450;
 }
 
 .block-marker.LATER {
   color: #e88438;
-  font-weight: 500;
+  font-weight: 450;
 }
 
 .block-marker.waiting {
   color: #f6c423;
-  font-weight: 500;
+  font-weight: 450;
 }
 
 /*-----------------------------------------------------*/
@@ -928,6 +958,7 @@ html[data-theme="dark"] {
   --cl-gray: #808080;
 }
 
+
 /* -----------------logseq query table resizer v20220314b ----------------- 
 by cannibalox-----------------*/
 
@@ -1090,7 +1121,7 @@ a.title h1.title {
 /*----------------- Vismode icon component by cannibalox ------------------*/
 /* hide tags with .v-       */
 a.tag[data-ref*=".v-"]:before {
-  content: "👁";
+  content: "";
   font-size: 0.75rem;
   line-height: 0.75rem;
 }
