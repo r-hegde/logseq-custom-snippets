@@ -16,7 +16,7 @@
 }
 
 :root {
-  --ct-text-size: 18px;
+  --ct-text-size: 16.5px !important;
   --ct-line-height: 1.6;
   --ls-font-family: "Only Emoji", "Source Sans 3 VF", "Source Han Sans VF",
     sans-serif;
@@ -411,7 +411,6 @@ iframe[id^='youtube-player'] {
 
 /* Increase the font and width of the main content page*/
 :root {
-  --ct-text-size: 16.5px !important;
   --ls-main-content-max-width: 96% !important;
   --ls-main-content-max-width-wide: 99% !important;
 }
