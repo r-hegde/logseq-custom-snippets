@@ -5,19 +5,6 @@
   --ls-block-bullet-threading-width: 1.5px;
 }
 
-html,
-body {
-  font-size: var(--ct-text-size);
-  font-family: var(--ls-font-family);
-  overscroll-behavior-y: none;
-  -webkit-font-smoothing: auto;
-  line-height: var(--ct-line-height);
-}
-
-textarea {
-  line-height: var(--ct-line-height);
-}
-
 .journal.page {
   display: flex;
   flex-direction: column;
