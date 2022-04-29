@@ -1306,6 +1306,16 @@ div[data-refs-self*="kanban-fit"]
   max-width: var(--ct-block-max-width);
 }
 
+.block-properties {
+  border-radius: 5px !important;
+  margin-left: -4px !important;
+}
+
+audio {
+  height: 30px;
+  width: 200px;
+}
+
 .page-properties {
   border-radius: 5px;
 }
