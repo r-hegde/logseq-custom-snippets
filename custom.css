@@ -126,7 +126,7 @@ a.tag{
 }
 
 /* Custom appearance for project tags*/
-a.tag[data-ref*="p_"] {
+a.tag[data-ref*="p:"] {
   color: rgb(40,40,40);
   background-color: rgb(181, 255, 210); /*#b9faf4;*/
   border-radius: 0.5rem 0rem;
@@ -140,7 +140,7 @@ a.tag[data-ref*="p_"] {
 }
 
 /* Custom appearance for area tags*/
-a.tag[data-ref*="a_"] {
+a.tag[data-ref*="a:"] {
   color: rgb(40,40,40);
   background-color: #abf8ff; /*#b9faf4;*/
   border-radius: 0.5rem 0rem;
@@ -153,13 +153,13 @@ a.tag[data-ref*="a_"] {
   white-space: nowrap;
 }
 
-a.tag[data-ref*="to-"] {
+a.tag[data-ref*="to-doc"] {
   font-size: 0;
   border: 0px !important;
   padding: 0;
 }
 
-a.tag[data-ref*="to-"]:before {
+a.tag[data-ref*="to-doc"]:before {
   content: "📓";
   font-size: 0.5rem;
   line-height: 0.5rem;
