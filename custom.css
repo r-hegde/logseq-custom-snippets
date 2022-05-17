@@ -72,22 +72,6 @@ body:not([data-page="home"]) .r > div:nth-child(2) {
   order: 4;
 }
 
-
-/*-----------------Edit Margins for logtools kanban tables ----------------------------*/
-
-[data-refs-self*="kanban"]>.block-children-container.flex>.block-children>.ls-block {  
-  margin-left: -24px;
-}
-
-[data-refs-self*="kanban"]>.block-children-container.flex>.block-children.w-full > .ls-block > .flex.flex-row {
-    padding: 4px 0px;
-}
-
-/* hide set properties line */
-div[data-refs-self*="kanban"] .initial > div > .flex{
-  display: none;
-}
-
 /*------------------------Tags----------------------------*/
 
 /* Changes to appearance of tags */
@@ -102,7 +86,7 @@ a.tag{
 }
 
 /* Custom appearance for project tags*/
-a.tag[data-ref*="p_"] {
+a.tag[data-ref*="p:"] {
   color: rgb(40,40,40);
   background-color: rgb(181, 255, 210); /*#b9faf4;*/
   border-radius: 0.5rem 0rem;
@@ -116,7 +100,7 @@ a.tag[data-ref*="p_"] {
 }
 
 /* Custom appearance for area tags*/
-a.tag[data-ref*="a_"] {
+a.tag[data-ref*="a:"] {
   color: rgb(40,40,40);
   background-color: #abf8ff; /*#b9faf4;*/
   border-radius: 0.5rem 0rem;
@@ -1282,6 +1266,22 @@ div[data-refs-self*="kanban-fit"]
   width: max-content;
 }
 
+
+/*-----------------Edit Margins for kanban tables ----------------------------*/
+
+[data-refs-self*="kanban"]>.block-children-container.flex>.block-children>.ls-block {  
+  margin-left: -24px;
+}
+
+[data-refs-self*="kanban"]>.block-children-container.flex>.block-children.w-full > .ls-block > .flex.flex-row {
+    padding: 4px 0px;
+}
+
+/* hide set properties line */
+div[data-refs-self*="kanban"] .initial > div > .flex{
+  display: none;
+}
+
 /*------------------------Miscellaneous-----------------------------*/
 
 /* Block with-bg-color */
@@ -1381,7 +1381,7 @@ iframe[id^="youtube-player"] {
   border: 1px solid var(--ls-border-color);
   border-radius: var(--ls-border-radius-medium);
   background-color: var(--ls-primary-background-color);
-  margin: 0em 0.5em 0.2em 1em !important;
+  margin: 0em 0.5em 0.2em 0.5em !important;
   padding: 0.5em 1em 0.5em 0em !important;
 }
 [data-refs-self*="border-child"]
