@@ -22,9 +22,6 @@
     sans-serif;
   --ct-page-title-font-family: var(--ls-font-family);
   --ct-code-font-family: "Fira Code", monospace;
-}
-
-:root {
   --ls-block-bullet-active-color: #a3cef1;
   --ls-block-bullet-threading-width: 1.5px;
 }
@@ -40,6 +37,23 @@
 
 #today-queries {
   order: 1;
+}
+
+/*---------------------Margins-----------------------*/
+
+/* Increase the font and width of the main content page*/
+:root {
+  --ls-main-content-max-width: 96% !important;
+  --ls-main-content-max-width-wide: 99% !important;
+}
+
+/* This reduces the margin space of the main content page */
+.cp__sidebar-main-content {
+  width: 100% !important;
+}
+
+#main-content-container .file {
+  margin: 0 auto !important;
 }
 
 /*-------------------------------------------------------*/
@@ -186,7 +200,7 @@ a.priority::before {
 
 a[priority=B]::before,
 a.priority[href="#/page/B" i]:before {
-  content: " 🟠 Medium " !important;
+  content: " 🟠 Med " !important;
   background: #ffe485;
   color: #000;
   border-radius: 18px;
@@ -277,7 +291,7 @@ span.opacity-60.text-sm.ml-2.results-count {
   color: var(--ct-query-header-color);
 }
 /*
-  >>> BEGIN: QUERY table
+  >>> BEGIN: QUERY table by yoyurec solarized theme
 */
 .custom-query-title {
     display: flex;
@@ -445,23 +459,6 @@ iframe[id^='youtube-player'] {
   width: var(--ls-main-content-max-width-wide) !important;
 }
 
-/*---------------------Margins-----------------------*/
-
-/* Increase the font and width of the main content page*/
-:root {
-  --ct-text-size: 16.5px !important;
-  --ls-main-content-max-width: 96% !important;
-  --ls-main-content-max-width-wide: 99% !important;
-}
-
-/* This reduces the margin space of the main content page */
-.cp__sidebar-main-content {
-  width: 100% !important;
-}
-
-#main-content-container .file {
-  margin: 0 auto !important;
-}
 
 /*-------------------Right Sidebar----------------------*/
 
@@ -1342,6 +1339,186 @@ div[data-refs-self*="kanban-fit"]
   > div.ls-block {
   min-width: 400px;
   width: max-content;
+}
+
+/*
+  >>> BEGIN: #kanban view
+  inspired by https://github.com/cannibalox/logtools
+*/
+/* layout */
+[data-refs-self*='kanban'] > .block-children-container > .block-children {
+    display: inline-flex;
+    position: relative;
+    margin: 0 10px;
+    border: 0;
+    overflow-x: auto;
+}
+
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex-row
+    > .block-content-wrapper {
+    width: 100%;
+}
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex-row
+    > .block-content-wrapper
+    > .flex {
+    overflow: hidden;
+}
+[data-refs-self*='kanban'] .todo-master-progress-bar {
+    max-width: 90%;
+}
+/* content */
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .block-children-container {
+    margin: 0 !important;
+}
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block::before {
+    display: none;
+}
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block:last-child {
+    margin-bottom: 0;
+}
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex-row
+    > .mr-1 {
+    display: none;
+}
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .block-children-container
+    > .block-children {
+    padding: 0 0;
+    border: 0;
+}
+/*
+  <<<< END: #kanban view
+*/
+/*
+  >>> BEGIN: Bullet Threading
+*/
+/* disable in kanban parent */
+[data-refs-self*='kanban'] > .flex > .block-content-wrapper::before,
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex
+    > .block-content-wrapper::before,
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .block-children-container
+    > .block-children
+    > .ls-block::before,
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex
+    > .mr-1::before {
+    display: none !important;
+}
+/*
+  <<<< END: Bullet Threading
+*/
+
+/* Popups: Search */
+.ui__modal-overlay div {
+    background: var(--ls-icon-color);
+}
+.cp__header>.r {
+    z-index: 1;
+}
+.cp__header>.l {
+    z-index: 2;
+}
+#head>.l>div:last-child {
+    position: absolute;
+    left: 125px;
+    z-index: 99999;
+    width: 26vw;
+}
+#search-button::after {
+    display: block;
+    content: 'Search or create page';
+    margin: 0 0 0 4px;
+    font-size: 14px;
+}
+#search-button {
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: start;
+    background: var(--ls-primary-background-color);
+    border: 1px solid var(--border);
+}
+.ui__modal-panel {
+    overflow: visible;
+    transition: none;
+}
+.cp__palette-main .input-wrap {
+    position: absolute;
+    top: -95px;
+    left: -444px;
+    height: 45px;
+    width: 45.5vw;
+    background: var(--ls-tertiary-background-color);
+    border-radius: 5px 5px 0 0;
+    border: 1px solid var(--border);
+}
+.cp__palette-main .input-wrap .cp__palette-input {
+    padding: 8px 29px;
+    font-size: 16px;
+}
+.cp__palette-main .search-results-wrap {
+    position: absolute;
+    width: 45.4vw;
+    top: -54px;
+    left: -443px;
+    background: var(--ls-primary-background-color);
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+}
+.cp__palette-main .menu-link {
+    padding: 12px 16px;
+    border-bottom: 1px dashed var(--ls-secondary-background-color);
+}
+.cp__palette-main .chosen, .cp__select-main .chosen {
+    background-color: var(--ls-secondary-background-color);
+}
+.cp__palette-main .menu-link .py-2 {
+    padding: 0;
+}
+/* compensations */
+.ui__modal-panel .panel-content {
+    padding: 0;
+}
+.ui__modal-panel .panel-content > div:not(.cp__palette-main) {
+    margin: 1.2rem;
 }
 
 /*------------------------Miscellaneous-----------------------------*/
