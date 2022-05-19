@@ -96,22 +96,6 @@ body:not([data-page="home"]) .r > div:nth-child(2) {
   order: 4;
 }
 
-
-/*-----------------Edit Margins for logtools kanban tables ----------------------------*/
-
-[data-refs-self*="kanban"]>.block-children-container.flex>.block-children>.ls-block {  
-  margin-left: -24px;
-}
-
-[data-refs-self*="kanban"]>.block-children-container.flex>.block-children.w-full > .ls-block > .flex.flex-row {
-    padding: 4px 0px;
-}
-
-/* hide set properties line */
-div[data-refs-self*="kanban"] .initial > div > .flex{
-  display: none;
-}
-
 /*------------------------Tags----------------------------*/
 
 /* Changes to appearance of tags */
@@ -246,16 +230,6 @@ div.custom-query-title {
   background: var(--ls-tertiary-background-color);
 }
 
-/*Hide "Set properties"*/
-.text-sm.mr-1 {
-    display: none;
-}
-
-/* Hide "table view" from queries */
-div.mx-2 {
-  display: none;
-}
-
 /*Hide the table-view selector
 span.wrapper.transition-colors.ease-in-out {
   display: none;
@@ -302,7 +276,71 @@ span.opacity-60.text-sm.ml-2.results-count {
 .block-body > .custom-query .foldable-title .opacity-70 > * {
   color: var(--ct-query-header-color);
 }
-
+/*
+  >>> BEGIN: QUERY table
+*/
+.custom-query-title {
+    display: flex;
+    padding-left: 36px;
+}
+.custom-query .color-level,
+.custom-query .table-auto {
+    margin: 0 0 3px 0;
+}
+.custom-query > div > .initial {
+    position: relative;
+}
+/* setting button*/
+.custom-query .initial > div > .flex.flex-row > .fade-link {
+    position: absolute;
+    z-index: 1;
+    right: 48px;
+    top: -25px;
+    padding: 0 3px;
+    opacity: 1;
+    font-size: 0.95rem;
+}
+.custom-query .initial > div .fade-link:hover {
+    background: var(--ls-primary-background-color);
+}
+.custom-query .initial > div > .flex.flex-row {
+    height: 0;
+}
+.custom-query .initial > div > .flex.flex-row .text-sm {
+    display: none;
+}
+.custom-query .initial > div > .flex.flex-row .ui__toggle {
+    display: flex;
+    position: absolute;
+    top: -20px;
+    right: 0;
+}
+.custom-query .initial > div > .flex.flex-row .ui__toggle::before {
+    content: '\eba1';
+    font-family: 'tabler-icons';
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    margin: -8px 4px 0 0;
+    color: var(--ls-primary-text-color);
+}
+.custom-query .initial > div > .overflow-x-auto {
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+.results-count {
+    white-space: nowrap;
+}
+td.whitespace-nowrap {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 450px;
+    overflow: hidden;
+}
+/*
+  <<<< END: QUERY table
+*/
 
 /*------------------------TODOs------------------------*/
 
@@ -607,7 +645,7 @@ span[data-ref="#purple"] + mark {
     padding: 0;
   }
   .pinned > :first-child:after {
-    background-color: #A31;
+    background-color: #aa3311;
     background-image: radial-gradient(25% 25%, circle, hsla(0,0%,100%,.3), hsla(0,0%,0%,.3));
     border-radius: 50%;
     box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.1),
