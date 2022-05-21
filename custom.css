@@ -1198,7 +1198,31 @@ a.title h1.title {
     border: 0;
     overflow-x: auto;
 }
-
+/* column */
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block {
+    display: inline-block;
+    padding: 0;
+    width: inherit;
+    min-width: 200px;
+    margin-right: 10px;
+    border-radius: 4px;
+    background-color: var(--ls-tertiary-background-color);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+/* header */
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex-row {
+    background-color: var(--ls-secondary-background-color);
+    border-bottom: 1px solid var(--border);
+    padding: 4px 6px;
+}
 [data-refs-self*='kanban']
     > .block-children-container
     > .block-children
@@ -1216,6 +1240,7 @@ a.title h1.title {
     > .flex {
     overflow: hidden;
 }
+
 [data-refs-self*='kanban'] .todo-master-progress-bar {
     max-width: 90%;
 }
@@ -1253,7 +1278,7 @@ a.title h1.title {
     > .ls-block
     > .block-children-container
     > .block-children {
-    padding: 0 0;
+    padding: 10px 0;
     border: 0;
 }
 /*
