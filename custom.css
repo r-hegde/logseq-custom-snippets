@@ -33,7 +33,7 @@
     display: none;
 }
 
-/*This removes flashcards from left sidebar*/
+/*This removes flashcards from left sidebar
 .flashcards-nav {
     display: none;
 }
@@ -162,7 +162,7 @@ a.priority::before {
 
 a[priority=B]::before,
 a.priority[href="#/page/B" i]:before {
-  content: " 🟠 Medium " !important;
+  content: " 🟠 Med " !important;
   background: #ffe485;
   color: #000;
   border-radius: 18px;
@@ -206,16 +206,6 @@ div.custom-query-title {
   background: var(--ls-tertiary-background-color);
 }
 
-/*Hide "Set properties"*/
-.text-sm.mr-1 {
-    display: none;
-}
-
-/* Hide "table view" from queries */
-div.mx-2 {
-  display: none;
-}
-
 /*Hide the table-view selector
 span.wrapper.transition-colors.ease-in-out {
   display: none;
@@ -223,6 +213,10 @@ span.wrapper.transition-colors.ease-in-out {
 
 /* Remove the actual query displayed in simple query tables */
 div.dsl-query > div.custom-query  > div.flex > div.content > div.flex-1 > div.flex.flex-row > div.custom-query-title > span.title-text {
+  display: none;
+}
+
+span.font-medium.px-2.py-1.query-title.text-sm.rounded-md.shadow-xs{
   display: none;
 }
 
@@ -263,6 +257,71 @@ span.opacity-60.text-sm.ml-2.results-count {
   color: var(--ct-query-header-color);
 }
 
+/*
+  >>> BEGIN: QUERY table by yoyurec solarized theme
+*/
+.custom-query-title {
+    display: flex;
+    padding-left: 36px;
+}
+.custom-query .color-level,
+.custom-query .table-auto {
+    margin: 0 0 3px 0;
+}
+.custom-query > div > .initial {
+    position: relative;
+}
+/* setting button*/
+.custom-query .initial > div > .flex.flex-row > .fade-link {
+    position: absolute;
+    z-index: 1;
+    right: 48px;
+    top: -25px;
+    padding: 0 3px;
+    opacity: 1;
+    font-size: 0.95rem;
+}
+.custom-query .initial > div .fade-link:hover {
+    background: var(--ls-primary-background-color);
+}
+.custom-query .initial > div > .flex.flex-row {
+    height: 0;
+}
+.custom-query .initial > div > .flex.flex-row .text-sm {
+    display: none;
+}
+.custom-query .initial > div > .flex.flex-row .ui__toggle {
+    display: flex;
+    position: absolute;
+    top: -20px;
+    right: 0;
+}
+.custom-query .initial > div > .flex.flex-row .ui__toggle::before {
+    content: '\eba1';
+    font-family: 'tabler-icons';
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    margin: -8px 4px 0 0;
+    color: var(--ls-primary-text-color);
+}
+.custom-query .initial > div > .overflow-x-auto {
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+.results-count {
+    white-space: nowrap;
+}
+td.whitespace-nowrap {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 450px;
+    overflow: hidden;
+}
+/*
+  <<<< END: QUERY table
+*/
 
 /*------------------------TODOs------------------------*/
 
@@ -356,15 +415,53 @@ a.external-link:after {
   width: 14px;
 }
 
-/* Remove/reduce empty line gap for in-line code block */
-.extensions__code > div.flex {
-  margin-top: 2px !important;
+/* Change the color of external links*/
+.external-link {
+  color: #a3e6bd; /* #ff9538;*/
 }
 
-/* Adjust youtube embed height */
-iframe[id^='youtube-player'] {
-  height: 600px !important;
-  width: var(--ls-main-content-max-width-wide) !important;
+.external-link[href*='vimeo.com']::before {
+    background-image: url(https://vimeo.com/favicon.ico);
+}
+.external-link[href*='youtu.be']::before,
+.external-link[href*='youtube.com']::before {
+    background-image: url(https://youtube.com/favicon.ico);
+}
+.external-link[href*='microsoft.com']::before {
+    background-image: url(https://microsoft.com/favicon.ico);
+}
+.external-link[href*='mozilla.org']::before {
+    background-image: url(https://developer.mozilla.org/favicon.ico);
+}
+.external-link[href*='github.com']::before {
+    background-image: url(https://github.com/favicon.ico);
+}
+.external-link[href*='stackoverflow.com']::before {
+    background-image: url(https://stackoverflow.com/favicon.ico);
+}
+.external-link[href*='dev.to']::before {
+    background-image: url(https://icons.duckduckgo.com/ip3/dev.to.ico);
+}
+.external-link[href*='twitter.com']::before {
+    background-image: url(https://twitter.com/favicon.ico);
+}
+.external-link[href*='reddit.com']::before {
+    background-image: url(https://www.reddit.com/favicon.ico);
+}
+.external-link[href*='pinterest.com']::before {
+    background-image: url(https://icons.duckduckgo.com/ip3/pinterest.com.ico);
+}
+.external-link[href*='wikipedia.org']::before {
+    background-image: url(https://wikipedia.org/favicon.ico);
+}
+.external-link[href*='medium.com']::before {
+    background-image: url(https://icons.duckduckgo.com/ip3/medium.com.ico);
+}
+.external-link[href*='discord.com']::before {
+    background-image: url(https://icons.duckduckgo.com/ip3/discord.com.ico);
+}
+.external-link[href*='amazon.']::before {
+    background-image: url(https://www.amazon.com/favicon.ico);
 }
 
 /*---------------------Margins-----------------------*/
@@ -1089,198 +1186,111 @@ a.title h1.title {
   content: "";
 }
 
-/*----------------- Vismode icon component by cannibalox ------------------*/
-/* hide tags with .v-       */
-a.tag[data-ref*=".v-"]:before {
-  content: "";
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-}
-a.tag[data-ref*=".v-"]:hover:before {
-  padding-right: 0.3rem;
-}
-a.tag[data-ref*=".v-"]:hover {
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-}
-a.tag[data-ref*=".v-"] {
-  font-size: 0px;
-  font-family: iosevka, fira code, consolas, source code pro;
-  color: #88e165;
-  background-color: #1a2d23;
-  border: 1px solid #a1c65d;
-  border-radius: 3px;
-  padding: 0 2px;
-}
-/* headings */
-.ls-block[data-refs-self*=".h1"]
-  > .flex-1.flex-row
-  > .flex
-  > .block-content
-  > div {
-  font-size: 2rem;
-  font-weight: 900;
-  color: #fff;
-}
-.ls-block[data-refs-self*=".h2"]
-  > .flex-1.flex-row
-  > .flex
-  > .block-content
-  > div {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #b4b4b4;
-}
-.ls-block[data-refs-self*=".h"]
-  > .flex-1.flex-row
-  > .flex
-  > .block-content
-  a.tag {
-  display: none;
+/*
+  >>> BEGIN: #kanban view
+  inspired by https://github.com/cannibalox/logtools
+*/
+/* layout */
+[data-refs-self*='kanban'] > .block-children-container > .block-children {
+    display: inline-flex;
+    position: relative;
+    margin: 0 10px;
+    border: 0;
+    overflow-x: auto;
 }
 
-/* ----------------Kanban columns view by cannibalox------------- */
-
-/* use: inline tag #kanban, #kanban-small or #kanban-wXXX 
- try:  #kanban-w200,#kanban-w300, #kanban-w400             */
-
-div[data-refs-self*="kanban"] > .block-children-container.flex {
-  width: 100%;
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex-row
+    > .block-content-wrapper {
+    width: 100%;
 }
-
-div[data-refs-self*="kanban"]
-  > .block-children-container.flex
-  > .block-children.w-full {
-  display: inline-flex;
-  position: relative;
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin: 0 10px;
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex-row
+    > .block-content-wrapper
+    > .flex {
+    overflow: hidden;
 }
-div[data-refs-self*="kanban"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  display: inline-block;
-  padding: 0;
-  width: inherit;
-  min-width: 200px;
-  margin-right: 10px;
+[data-refs-self*='kanban'] .todo-master-progress-bar {
+    max-width: 90%;
 }
-
-/* wide */
-div[data-refs-self*="kanban-small"]
-  > .block-children-container.flex
-  > .block-children,
-div[data-refs-self*="kanban-wide"]
-  > .block-children-container.flex
-  > .block-children {
-  min-width: 90vw;
-  left: 50%;
-  transform: translate(-50%);
-  background-color: var(--ls-primary-background-color);
-  overflow-x: scroll;
-  overflow-y: hidden;
-  margin: 10px 30px;
+/* content */
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .block-children-container {
+    margin: 0 !important;
 }
-
-div[data-refs-self*="kanban-wide"]
-  > .block-children-container.flex
-  > .block-children
-  > div.ls-block {
-  display: inline-block;
-  min-width: 350px;
-  padding: 13px 3px;
-  font-size: 0.85rem;
-  margin: 5px;
-  background-color: var(--ls-secondary-background-color);
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block::before {
+    display: none;
 }
-
-/* #kanbansmall : smaller font with hover zoom */
-
-div[data-refs-self*="kanban-small"]
-  > .block-children-container.flex
-  > .block-children
-  > div.ls-block {
-  display: inline-block;
-  min-width: 350px;
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block:last-child {
+    margin-bottom: 0;
 }
-
-div[data-refs-self*="kanban-small"]
-  > .block-children-container.flex
-  > .block-children
-  .block-content {
-  font-size: 10px;
-  font-weight: 300;
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex-row
+    > .mr-1 {
+    display: none;
 }
-
-div[data-refs-self*="kanban-small"]
-  > .block-children-container.flex
-  > .block-children
-  .block-content:hover {
-  font-size: 14px !important;
-  min-width: 100px;
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .block-children-container
+    > .block-children {
+    padding: 0 0;
+    border: 0;
 }
-
-/* #kanban-w[100-300] : force width of the columns */
-
-div[data-refs-self*="kanban-w100"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 100px;
+/*
+  <<<< END: #kanban view
+*/
+/*
+  >>> BEGIN: Bullet Threading
+*/
+/* disable in kanban parent */
+[data-refs-self*='kanban'] > .flex > .block-content-wrapper::before,
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex
+    > .block-content-wrapper::before,
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .block-children-container
+    > .block-children
+    > .ls-block::before,
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex
+    > .mr-1::before {
+    display: none !important;
 }
-
-div[data-refs-self*="kanban-w150"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 150px;
-}
-
-div[data-refs-self*="kanban-w200"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 200px;
-}
-div[data-refs-self*="kanban-w300"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 300px;
-}
-div[data-refs-self*="kanban-w400"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 400px;
-}
-div[data-refs-self*="kanban-fit"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 400px;
-  width: max-content;
-}
-
-
-/*-----------------Edit Margins for kanban tables ----------------------------*/
-
-[data-refs-self*="kanban"]>.block-children-container.flex>.block-children>.ls-block {  
-  margin-left: -24px;
-}
-
-[data-refs-self*="kanban"]>.block-children-container.flex>.block-children.w-full > .ls-block > .flex.flex-row {
-    padding: 4px 0px;
-}
-
-/* hide set properties line */
-div[data-refs-self*="kanban"] .initial > div > .flex{
-  display: none;
-}
+/*
+  <<<< END: Bullet Threading
+*/
 
 /*------------------------Miscellaneous-----------------------------*/
 
@@ -1343,11 +1353,6 @@ progress::-webkit-progress-value {
   background: var(--ct-success-color);
 }
 
-/* Change the color of external links*/
-.external-link {
-  color: #a3e6bd; /* #ff9538;*/
-}
-
 /* Remove/reduce empty line gap for in-line code block */
 .extensions__code > div.flex {
   margin-top: 2px !important;
@@ -1361,6 +1366,22 @@ progress::-webkit-progress-value {
 iframe[id^="youtube-player"] {
   height: 600px !important;
   width: var(--ls-main-content-max-width-wide) !important;
+}
+
+table {
+    background-color: var(--ls-primary-background-color);
+}
+th,
+td {
+    padding: 0.2rem;
+}
+textarea {
+    line-height: var(--ls-page-text-line-height);
+}
+
+.cp__plugins-page {
+    /* more space to see last row plugins "uninstall" menu item ;) */
+    padding: 1.5rem 2rem 5rem 2rem;
 }
 
 /* -----------------------Block Borders----------------------------- */
