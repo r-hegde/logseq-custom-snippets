@@ -81,7 +81,7 @@
 	display: none;
 }
 
-/*------------------Move previous/next arrows to left side of toolbar-------------------*/
+/*------------------Move previous/next arrows to the left-------------------*/
 
 /* shrink left toolbar */
 .cp__header > .l {
@@ -254,6 +254,10 @@ div.dsl-query > div.custom-query  > div.flex > div.content > div.flex-1 > div.fl
   display: none;
 }
 
+span.font-medium.px-2.py-1.query-title.text-sm.rounded-md.shadow-xs{
+  display: none;
+}
+
 /*Formatting results count*/
 span.opacity-60.text-sm.ml-2.results-count {
   font-size: 0.7rem;
@@ -393,7 +397,7 @@ td.whitespace-nowrap {
 
 .done {
   color: var(--ct-task-done-text-color);
-  text-decoration: var(--ct-task-done-text-decoration);
+  text-decoration: line-through;
 }
 
 .timestamp-label {
@@ -419,12 +423,7 @@ td.whitespace-nowrap {
   font-weight: 450;
 }
 
-/*-----------------------------------------------------*/
-
-/* Change the color of external links*/
-.external-link {
-  color: #a3e6bd; /* #ff9538;*/
-}
+/*--------------Add icon for external links-----------------*/
 
 a.external-link:after {
   background-color: #a3e6bd;
@@ -446,17 +445,6 @@ a.external-link:after {
   position: relative;
   transition: 0.3s;
   width: 14px;
-}
-
-/* Remove/reduce empty line gap for in-line code block */
-.extensions__code > div.flex {
-  margin-top: 2px !important;
-}
-
-/* Adjust youtube embed height */
-iframe[id^='youtube-player'] {
-  height: 600px !important;
-  width: var(--ls-main-content-max-width-wide) !important;
 }
 
 
@@ -1163,184 +1151,6 @@ a.title h1.title {
   display: block;
   content: "";
 }
-
-/*----------------- Vismode icon component by cannibalox ------------------*/
-/* hide tags with .v-       */
-a.tag[data-ref*=".v-"]:before {
-  content: "";
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-}
-a.tag[data-ref*=".v-"]:hover:before {
-  padding-right: 0.3rem;
-}
-a.tag[data-ref*=".v-"]:hover {
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-}
-a.tag[data-ref*=".v-"] {
-  font-size: 0px;
-  font-family: iosevka, fira code, consolas, source code pro;
-  color: #88e165;
-  background-color: #1a2d23;
-  border: 1px solid #a1c65d;
-  border-radius: 3px;
-  padding: 0 2px;
-}
-/* headings */
-.ls-block[data-refs-self*=".h1"]
-  > .flex-1.flex-row
-  > .flex
-  > .block-content
-  > div {
-  font-size: 2rem;
-  font-weight: 900;
-  color: #fff;
-}
-.ls-block[data-refs-self*=".h2"]
-  > .flex-1.flex-row
-  > .flex
-  > .block-content
-  > div {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #b4b4b4;
-}
-.ls-block[data-refs-self*=".h"]
-  > .flex-1.flex-row
-  > .flex
-  > .block-content
-  a.tag {
-  display: none;
-}
-
-/* ----------------Kanban columns view by cannibalox------------- */
-
-/* use: inline tag #kanban, #kanban-small or #kanban-wXXX 
- try:  #kanban-w200,#kanban-w300, #kanban-w400             */
-
-div[data-refs-self*="kanban"] > .block-children-container.flex {
-  width: 100%;
-}
-
-div[data-refs-self*="kanban"]
-  > .block-children-container.flex
-  > .block-children.w-full {
-  display: inline-flex;
-  position: relative;
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin: 0 10px;
-}
-div[data-refs-self*="kanban"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  display: inline-block;
-  padding: 0;
-  width: inherit;
-  min-width: 200px;
-  margin-right: 10px;
-}
-
-/* wide */
-div[data-refs-self*="kanban-small"]
-  > .block-children-container.flex
-  > .block-children,
-div[data-refs-self*="kanban-wide"]
-  > .block-children-container.flex
-  > .block-children {
-  min-width: 90vw;
-  left: 50%;
-  transform: translate(-50%);
-  background-color: var(--ls-primary-background-color);
-  overflow-x: scroll;
-  overflow-y: hidden;
-  margin: 10px 30px;
-}
-
-div[data-refs-self*="kanban-wide"]
-  > .block-children-container.flex
-  > .block-children
-  > div.ls-block {
-  display: inline-block;
-  min-width: 350px;
-  padding: 13px 3px;
-  font-size: 0.85rem;
-  margin: 5px;
-  background-color: var(--ls-secondary-background-color);
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-}
-
-/* #kanbansmall : smaller font with hover zoom */
-
-div[data-refs-self*="kanban-small"]
-  > .block-children-container.flex
-  > .block-children
-  > div.ls-block {
-  display: inline-block;
-  min-width: 350px;
-}
-
-div[data-refs-self*="kanban-small"]
-  > .block-children-container.flex
-  > .block-children
-  .block-content {
-  font-size: 10px;
-  font-weight: 300;
-}
-
-div[data-refs-self*="kanban-small"]
-  > .block-children-container.flex
-  > .block-children
-  .block-content:hover {
-  font-size: 14px !important;
-  min-width: 100px;
-}
-
-/* #kanban-w[100-300] : force width of the columns */
-
-div[data-refs-self*="kanban-w100"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 100px;
-}
-
-div[data-refs-self*="kanban-w150"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 150px;
-}
-
-div[data-refs-self*="kanban-w200"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 200px;
-}
-div[data-refs-self*="kanban-w300"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 300px;
-}
-div[data-refs-self*="kanban-w400"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 400px;
-}
-div[data-refs-self*="kanban-fit"]
-  > .block-children-container.flex
-  > .block-children.w-full
-  > div.ls-block {
-  min-width: 400px;
-  width: max-content;
-}
-
 /*
   >>> BEGIN: #kanban view
   inspired by https://github.com/cannibalox/logtools
@@ -1353,7 +1163,32 @@ div[data-refs-self*="kanban-fit"]
     border: 0;
     overflow-x: auto;
 }
-
+/* column */
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block {
+    display: inline-block;
+    padding: 0;
+    width: inherit;
+    min-width: 200px;
+    margin-right: 10px;
+    border-radius: 4px;
+    background-color: var(--ls-tertiary-background-color);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+/* header */
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex-row {
+    background-color: var(--color-level-1);
+    border-bottom: 1px solid var(--ls-border-color);
+    padding: 0px 6px;
+    border-radius: 4px;
+}
 [data-refs-self*='kanban']
     > .block-children-container
     > .block-children
@@ -1371,6 +1206,7 @@ div[data-refs-self*="kanban-fit"]
     > .flex {
     overflow: hidden;
 }
+
 [data-refs-self*='kanban'] .todo-master-progress-bar {
     max-width: 90%;
 }
@@ -1408,8 +1244,20 @@ div[data-refs-self*="kanban-fit"]
     > .ls-block
     > .block-children-container
     > .block-children {
-    padding: 0 0;
+    padding: 10px 0;
     border: 0;
+}
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block {
+      background-color: var(--ls-primary-background-color) !important;
+      border: 2.5px solid var(--ls-secondary-background-color);
+    }
+
+a.tag[data-ref*="kanban"] {
+  border: 0px !important;
+  display: none;
 }
 /*
   <<<< END: #kanban view
@@ -1572,11 +1420,6 @@ progress::-webkit-progress-value {
   background: var(--ct-success-color);
 }
 
-/* Change the color of external links*/
-.external-link {
-  color: #a3e6bd; /* #ff9538;*/
-}
-
 /* Remove/reduce empty line gap for in-line code block */
 .extensions__code > div.flex {
   margin-top: 2px !important;
@@ -1689,7 +1532,7 @@ html[data-theme="dark"] {
   --ls-link-ref-text-hover-color: var(--ct-secondary-color);
   --ls-active-primary-color: var(--ct-primary-color);
   --ls-active-secondary-color: var(--ct-secondary-color);
-  --ls-external-link-color: var(--ct-secondary-color);
+  --ls-external-link-color: #a3e6bd;
   --ls-guideline-color: var(--ls-tertiary-background-color);
   --ls-block-bullet-color: var(--ls-tertiary-background-color);
   --ls-bullet-closed-color: var(--ls-secondary-text-color);
