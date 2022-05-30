@@ -1017,6 +1017,11 @@ mark {
       padding: 1.5rem 2rem 5rem 2rem;
   }
 
+/*External link text color*/
+.external-link {
+  color: var(--ls-external-link-color);
+}
+
 /* Add Icon after external links*/
 a.external-link:after {
   background-color: var(--ls-external-link-color);
