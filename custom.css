@@ -435,7 +435,8 @@ span.font-medium.px-2.py-1.query-title.text-sm.rounded-md.shadow-xs{
 span.opacity-60.text-sm.ml-2.results-count {
   font-size: 0.75rem;
   font-weight: 450;
-  margin-left: -25px;
+  margin-left: 10px;
+  color: gray;
 }
 
 opacity-70 hover:opacity-100 svg-small inline,
